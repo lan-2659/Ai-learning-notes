@@ -1,0 +1,15 @@
+Activity的生命周期有创建、开始、唤醒、暂停、销毁五种状态
+
+由堆栈来管理Activity
+    当新一个Activity开始时
+    它会被放在堆栈的顶部('只有栈顶的Activity会运行')
+    而前一个Activity则移至其下方
+    若Activity结束会被移出堆栈
+
+onCreate() --> onStart() --> onResume()
+    ↑                       (用户交互中)
+(切换到后台或暂停)                ↓
+                             onPause() --> onStop()
+                                ↓
+                          (重新启动或销毁)
+                            onRestart() --> onStart() --> onResume()
