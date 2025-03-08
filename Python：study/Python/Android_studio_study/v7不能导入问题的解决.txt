@@ -1,6 +1,0 @@
-问题：import android.support.v7.app.AppCompatActivity; 导入失败
-原因：由于版本的更新，Android支持库改成了Android X，使一些库或工具和库的组合不兼容，这会导致一些传统的库或方法导入失败
-解决方法：
-    在 app 目录下找到 build.gradle 文件，点开
-    找到 denpendenies,添加代码：
-        implementation("androidx.appcompat:appcompat:1.6.1")
