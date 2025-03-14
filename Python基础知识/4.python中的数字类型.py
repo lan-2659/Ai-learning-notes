@@ -81,6 +81,6 @@ print(x)
 x = 1 + 2j  # 直接创建复数
 print(x)
 
-x = complex(1, 2)   # 通过conplex()函数创建复数
+x = complex(1, 2)   # 通过conplex()函数创建复数，虚部数字可以不填，默认为0
 print(x)
 """
