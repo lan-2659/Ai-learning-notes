@@ -1,3 +1,4 @@
+# 输出全部关键字
 import keyword
 for key in keyword.kwlist:
     print(key)
@@ -32,7 +33,7 @@ square = lambda x: x ** 2
 
 # nonlocal 关键字
 '''
-nonlocal x  # 声明这个x是外层函数中的变量（如果外层中有多个想x，会选择最近那个），如果外层函数中不存在x会报错
+nonlocal x  # 声明这个x是外层函数中的变量（如果外层中有多个x，会选择最近那个），如果外层函数中不存在x会报错
 nonlocal 用于访问或修改一个外层函数中声明的变量
 '''
 
