@@ -32,13 +32,13 @@ print(str_)
 
 # 字符串的运算
 """
-new_str = 'hello' + 'world'         # 用'+'连接字符串返回一个新字符串
+new_str = 'hello' + 'world'      # 用'+'连接字符串返回一个新字符串
 print(new_str)
 
 new_str = 'hello''world'         # 两个或以上字符串如果紧邻在一起，会自动连接
 print(new_str)
 
-new_str = 'hello' * 2            # 重复字符串两次
+new_str = 'hello' * 2            # 重复字符串两次，并返回一个新字符串
 print(new_str)
 """
 
