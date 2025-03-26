@@ -16,6 +16,16 @@ tuple_x = (20, )           # 如果只有一个元素，需要在元素后添加
 x = (20)                   # 此处x是一个整型数据20,而不是元组
 """
 
+# 生成器推导式(python中没有元组推导式)
+"""
+generator = (表达式 for 变量 in 可迭代对象 if 条件)     # 生成器推导式的结果是返回一个迭代器
+
+举例：
+generator = (x for x in range(10) if x % 2 == 0)
+print(generator)            # 输出这个迭代器对象的地址
+print(tuple(generator))     # 可以通过tuple()函数将其转换为元组
+"""
+
 
 # 元组的打包
 """

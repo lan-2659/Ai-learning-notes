@@ -10,8 +10,10 @@ list_x = ['good', 123, 2.2, 'best', 70.2]    # 直接将一个现成的列表赋
 
 # 列表推导式
 """
-[expression（表达式） for item in iterable if condition]
-list_x = [x for x in range(10) if x%2 == 0]
+list = [表达式 for 变量 in 可迭代对象 if 条件]
+
+举例：
+list_x = [x + 2 for x in range(10) if x%2 == 0]
 """
 
 

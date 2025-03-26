@@ -43,40 +43,6 @@ math.e              # 返回数学常量 e，即自然常数 2.718281828459045
 """
 
 
-# os模块
-"""
-import os
-
-os.remove(path)     # 删除文件，不返回值
-
-current_directory = os.getcwd()     # 返回当前的工作目录，这是一个绝对路径的字符串
-
-os.listdir(path)       # 返回一个列表，包含这个路径下的所有文件名（带后缀的）
-    os.listdir(".")    # 返回当前目录下的
-    os.listdir("..")    # 返回上一级目录下的
-    
-os.rename(old_name, new_name)  # 为文件改名，文件名应该写全（包括后缀）
-
-"""
-
-
-# os.path模块
-"""
-import os
-
-os.path.exists(path)        # 判断path指向的文件是否存在
-
-os.path.basename(path)      # 去掉目录路径，返回文件名
-os.path.dirname(path)       # 去掉文件名，返回目录路径
-
-os.path.isdir(path)         # 判断路径是否存在且是一个目录
-os.path.isfile(path)        # 判断路径是否存在且是一个文件
-
-os.path.join(path1, path2, ..., pathN)  # 返回拼接好的路径，就是根据操作系统选择合适的分隔符连起来
-
-"""
-
-
 # collections模块方法
 """
 import collections

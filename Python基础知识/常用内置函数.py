@@ -1,15 +1,11 @@
-# Python内置函数range(start,stop,step)
+# range(start=0,stop,step=1)
 """
-作用：生成指定范围的序列
-优点：所有range对象存储空间都相同，因为仅仅只需要存储start,stop,step三个数据，只有当用到range对象时才会去计算序列中的相关元素
+返回一个迭代器，这个迭代器会保存一个序列，但是这个序列中的值只会在你需要时生成
+
 start   开始的数值（默认为0）
 stop    停止的数值(不包括该值，且没有默认值)
 step    步长（默认为1）, 不能为0或负数, 为0会报错
 """
-# range()函数只有三种用法
-# 1、range(stop)
-# 2、range(start,stop)
-# 3、range(start,stop,step)
 
 
 # sorted(可迭代对象, key=函数, reverse=True)
