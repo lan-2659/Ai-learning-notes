@@ -76,7 +76,7 @@ path.open("r", encoding=None)    # 与内置函数 open 的功能一致，传参
 with path.open("r", encoding="utf-8") as f:    # 打开文件，并使用with语句，自动关闭文件
     print(f.read())
 
-path.stat()          # 返回一个os.stat_result对象，该对象包含文件或目录的详细信息，如文件大小、创建时间、修改时间等
+path.stat()          # 返回一个命名元组，该对象包含文件或目录的详细信息，如文件大小、创建时间、修改时间等（时间以时间戳表示）
 
 new_path = path.with_name("new_report.txt")  # 返回一个路径对象，与原路径相比只有文件名不同(仅创建路径对象，文件系统并没有改变)
 path.rename(new_path)                        # 将原对象指向的文件移动到新路径(如果如果原对象和新对象只有文件名不同，那么该方法的操作结果就是给文件改了名字)
@@ -90,9 +90,4 @@ path.resolve()       # 返回一个绝对路径对象（即用原对象的绝对
 
 # Path 模块的静态方法（工具）
 Path.home()      # 返回一个路径对象，表示当前用户的主目录，例如：C:\\Users\\26595路径创建的路径对象(在我的电脑上)
-
 """
-from pathlib import Path
-path = Path("ceshi.py")
-path.touch()
-print(Path("ceshi.py").stat())
