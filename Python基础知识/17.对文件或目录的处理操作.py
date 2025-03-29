@@ -15,28 +15,28 @@
 
 # os模块和os.path模块的使用
 """
-import os
+import os   
 
-# os 模块
-os.remove(path)         # 删除文件，不返回值
+    # os 模块
+        os.remove(path)         # 删除文件，不返回值
 
-os.getcwd()             # 返回当前的工作目录，这是一个绝对路径的字符串
+        os.getcwd()             # 返回当前的工作目录，这是一个绝对路径的字符串
 
-os.listdir(path)        # 返回一个列表，包含这个路径下的所有文件名（带后缀的）
+        os.listdir(path)        # 返回一个列表，包含这个路径下的所有文件名（带后缀的）
 
-os.rename(old_name, new_name)  # 为文件改名，文件名应该写全（包括后缀）
+        os.rename(old_name, new_name)  # 为文件改名，文件名应该写全（包括后缀）
 
 
-# os.path 模块
-os.path.exists(path)        # 判断path指向的文件是否存在
+    # os.path 模块
+        os.path.exists(path)        # 判断path指向的文件是否存在
 
-os.path.basename(path)      # 去掉目录路径，返回文件名
-os.path.dirname(path)       # 去掉文件名，返回目录路径
+        os.path.basename(path)      # 去掉目录路径，返回文件名
+        os.path.dirname(path)       # 去掉文件名，返回目录路径
 
-os.path.isdir(path)         # 判断路径是否存在且是一个目录
-os.path.isfile(path)        # 判断路径是否存在且是一个文件
+        os.path.isdir(path)         # 判断路径是否存在且是一个目录
+        os.path.isfile(path)        # 判断路径是否存在且是一个文件
 
-os.path.join(path1, path2, ..., pathN)  # 返回拼接好的路径(即根据操作系统选择合适的分隔符将传入的路径连接起来)
+        os.path.join(path1, path2, ..., pathN)  # 返回拼接好的路径(即根据操作系统选择合适的分隔符将传入的路径连接起来)
 """
 
 
@@ -46,7 +46,7 @@ from pathlib import Path    # 导入pathlib模块中的Path类
 
 
 # 创建路径对象
-# path = Path() 这不是创建空对象，这个语句等价于 path = Path(".")
+path = Path()                           # 这不是创建空对象，这个语句等价于 path = Path(".")
 path = Path("D:/")                      # 创建Path类的实例（路径对象）,这个路径可以是不存在的(在创建对象时不会报错)
 path = path / "data" / "report.txt"     # 可以使用 / 运算符来连接路径
 print(path)                             # 输出这个对象中保存的路径
@@ -80,10 +80,10 @@ path.stat()          # 返回一个命名元组，该对象包含文件或目录
 
 new_path = path.with_name("new_report.txt")  # 返回一个路径对象，与原路径相比只有文件名不同(仅创建路径对象，文件系统并没有改变)
 path.rename(new_path)                        # 将原对象指向的文件移动到新路径(如果如果原对象和新对象只有文件名不同，那么该方法的操作结果就是给文件改了名字)
-# 注意：rename()方法会改变文件系统，且如果 原对象指向的文件不存在 或 新对象指向的文件已存在 会报错
+                                             # 注意：rename()方法会改变文件系统，且如果 原对象指向的文件不存在 或 新对象指向的文件已存在 会报错
 
 path.iterdir()       # 返回一个迭代器，迭代器中包含当前路径下的所有文件和子目录的路径对象
-# 使用path.iterdir()方法时，path中的路径必须是一个有效的目录路径，否则会报错
+                     # 使用path.iterdir()方法时，path中的路径必须是一个有效的目录路径，否则会报错
 
 path.resolve()       # 返回一个绝对路径对象（即用原对象的绝对路径创建的路径对象）
 
