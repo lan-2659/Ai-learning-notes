@@ -23,15 +23,6 @@ Python中 None 表示空
 """
 
 
-# lambda关键字
-"""
-用于创建一个匿名函数
-格式: lanmbda 形参名：返回值
-示例: 
-square = lambda x: x ** 2
-"""
-
-
 # nonlocal 关键字
 """
 nonlocal x  # 声明这个x是外层函数中的变量（如果外层中有多个x，会选择最近那个），如果外层函数中不存在x会报错
