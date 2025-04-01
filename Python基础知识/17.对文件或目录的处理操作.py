@@ -56,7 +56,7 @@ print(path)                             # 输出这个对象中保存的路径
 path.name            # 返回文件名(带后缀)
 path.stem            # 返回文件名(无后缀)
 path.suffix          # 返回文件后缀
-path.parent          # 返回父目录
+path.parent          # 返回父目录的路径对象
 
 
 # 路径对象的方法
