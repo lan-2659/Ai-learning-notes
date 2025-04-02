@@ -18,7 +18,7 @@ all() 和 any()
 """
 
 
-# range(start=0,stop,step=1)
+#TODO 这个方法的具体用法需要验证 range(start=0,stop,step=1)
 """
 返回一个迭代器，这个迭代器会保存一个序列，但是这个序列中的值只会在你需要时生成
 
