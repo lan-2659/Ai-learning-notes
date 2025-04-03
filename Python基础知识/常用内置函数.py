@@ -4,7 +4,6 @@ range()
 sorted()
 min() 和 max()
 copy()
-bit_count()
 enumerate()
 abs()
 map()
@@ -18,49 +17,37 @@ all() 和 any()
 """
 
 
-#TODO 这个方法的具体用法需要验证 range(start=0,stop,step=1)
+# range(start=0,stop,step=1)
 """
-返回一个迭代器，这个迭代器会保存一个序列，但是这个序列中的值只会在你需要时生成
+range(start=0, stop, step=1)      返回一个 range对象，这个对象中会保存一个整数序列（但不会立即生成值，而是惰性生成值）
 
-start   开始的数值（默认为0）
-stop    停止的数值(不包括该值，且没有默认值)
-step    步长（默认为1）, 不能为0或负数, 为0会报错
+range 的三个参数必须是整数
+步长 step 参数可正可负，但不能为0
 """
 
 
-# sorted(可迭代对象, key=函数, reverse=True)
-# 传入的函数会对每一个可迭代对象元素使用，用于选出比较的值
-# 只有序列中待排值类型相同才能排，结果会返回一个按照从小到大排列的'列表'（数字在前，字母在后）
+# sorted()
 """
-示例:
-str_ = 'asdjs1112345  !@#dn￥%……&*（）——+'#字符串
-print(sorted(str_))
+sorted(可迭代对象, *, key=None, reverse=False)      返回一个新的已排序列表（默认升序）
 
-list_ = list('hello world!')#列表
-print(sorted(list_))
+key参数 接收一个函数，这个函数会对可迭代对象的每一个元素使用，返回比较的值
+reverse参数	接收布尔值，True 表示降序，False 表示升序
 
-tuple_ = tuple('asjdhb')#元组
-print(tuple_)
-print(sorted(tuple_))
-
-dict_ = {'Alice': '2341', 'Beth': '9102', 'Cecil': 3258}#字典
-print(sorted(dict_).items())
-
-set_ = set(('bcsegdhf'))#集合
-print(sorted(set_))
+注意：当元素相等时，保持它们原有的相对顺序
+注意：不同类型不能排序，但可以通过 key参数 中的函数返回一个同类型的值，来进行间接排序
 """
 
 
 # min() 和 max()
 """
-min(可迭代对象，key=函数)   
-    传入的函数会对每一个可迭代对象的元素使用，函数的返回值会被作为比较值
+min(可迭代对象，key=None)   
+    key参数可以接收一个函数，这个函数会对可迭代对象的每一个元素使用，返回比较的值
 
     这个函数会选出可迭代对象的元素中最小的那一个
     (字符串按 ASCII 值逐字符比较)
 
-max(可迭代对象, key=函数)   
-    传入的函数会对每一个可迭代对象的元素使用，函数的返回值会被作为比较值
+max(可迭代对象, key=None)   
+    key参数可以接收一个函数，这个函数会对可迭代对象的每一个元素使用，返回比较的值
 
     这个函数会选出可迭代对象的元素中最大的那一个
     (字符串按 ASCII 值逐字符比较)
@@ -83,19 +70,11 @@ max(可迭代对象, key=函数)
 """
 
 
-# bit_count()方法
-"""
-python 3.10 以上可用
-
-返回一个数转换成二进制后1的个数
-"""
-
-
 # enumerate()
 """
-可以对列表，字符串，元组使用
-返回索引序号和值
-序号在前，值在后
+enumerate(可迭代对象, start=0)        返回一个生成器对象，每次迭代生成一个元组 (index, value)
+
+start参数	接收一个整数，表示索引的起始位置，默认为 0
 """
 
 
