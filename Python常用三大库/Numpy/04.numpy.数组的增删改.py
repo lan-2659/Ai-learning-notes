@@ -130,6 +130,15 @@
 
         b = np.unique(a)    # axis=None，返回一维数组
         print(b)
+
+        arr = np.array([2, 1, 3, 1, 2])
+        unique_values, indices, inverse_indices, counts = np.unique(
+            arr, return_index=True, return_inverse=True, return_counts=True
+        )
+        print("返回的新数组:", unique_values)    # [1 2 3]      （去重且排序后的数组）
+        print("首次索引:", indices)             # [1 0 2]       （新数组中的元素在原数组中的位置）
+        print("逆索引:", inverse_indices)       # [1 0 2 0 1]   （原数组中的元素在新数组中的位置）
+        print("出现次数:", counts)              # [2 2 1]       （新数组中每个元素在原数组中出现的次数）
 """
 
  
@@ -160,56 +169,3 @@
         b = np.resize(a, (2, 2))        # 修改的新形状中元素个数小于原数组的元素个数，原数组中多余的元素丢弃
         print(b)
 """
-
-import numpy as np
-
-# argwhere():默认返回非0元素对应的索引坐标[[行下标,列下标],[行下标,列下标]...]
-a = np.arange(6).reshape(2, 3)
-b = np.argwhere(a)
-print(b)
-# 也可以使用布尔索引获取满足条件的索引坐标
-b = np.argwhere(a > 3)
-print(b)
-
-# argmax():获取列表中最大值对应的下标索引
-a = np.array([1, 3, 2, 5, 3])
-b = np.argmax(a)
-print(b)
-
-# where():默认返回非0元素对应的索引下标，返回的结果是元组，元组中元素是行索引下标数组和列索引下标数组
-# 可以结合整数数组索引来获取指定位置的元素
-# 和argwhere一样，也可以使用布尔索引获取满足条件的索引下标
-a = np.arange(6).reshape(2, 3)
-b = np.where(a)
-print(b)
-
-# 布尔索引
-b = np.where(a > 3)
-
-c = a[b[0], b[1]]
-print(c)
-
-# unique():去重
-# 参数：
-# return_index:如果为True，返回新数组元素在原数组中的位置(索引)
-# return_inverse:如果为True，返回原数组元素在新数组的位置(逆索引)
-# return_counts:如果为True，返回新数组元素在原数组中出现的次数
-# axis：轴方向
-
-a = np.array([1, 2, 2, 3, 4, 4, 5])
-b = np.unique(a)
-print(b)
-
-b, idx = np.unique(a, return_index=True)
-print(b, idx)
-
-b, inv_idx = np.unique(a, return_inverse=True)
-print(b, inv_idx)
-
-b, count = np.unique(a, return_counts=True)
-print(b, count)
-
-# 二维数组去重
-a = np.array([[1, 2], [2, 3], [1, 2]])
-b = np.unique(a, axis=0)
-print(b)

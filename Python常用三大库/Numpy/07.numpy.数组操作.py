@@ -1,5 +1,28 @@
 import numpy as np
 
+# argwhere():默认返回非0元素对应的索引坐标[[行下标,列下标],[行下标,列下标]...]
+a = np.arange(6).reshape(2, 3)
+b = np.argwhere(a)
+print(b)
+# 也可以使用布尔索引获取满足条件的索引坐标
+b = np.argwhere(a > 3)
+print(b)
+
+# argmax():获取列表中最大值对应的下标索引
+a = np.array([1, 3, 2, 5, 3])
+b = np.argmax(a)
+print(b)
+
+# where():默认返回非0元素对应的索引下标，返回的结果是元组，元组中元素是行索引下标数组和列索引下标数组
+# 可以结合整数数组索引来获取指定位置的元素
+# 和argwhere一样，也可以使用布尔索引获取满足条件的索引下标
+a = np.arange(6).reshape(2, 3)
+b = np.where(a)
+print(b)
+
+
+import numpy as np
+
 # reshape():修改数组的形状
 # 修改后返回一个新数组，不直接修改原数组
 # 返回的新数组是原数组的视图，修改新数组会影响原数组
