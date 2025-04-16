@@ -1,19 +1,65 @@
 # 读取图片方法
 """
-cv2.imread()
+# 有两种方法用于读取图片
+    1、使用cv2.imread()方法直接读取
+    2、使用numpy.fromfile()方法读取，cv2.imdecode方法转换
 
-    语法格式：
-    cv2.imread(filename, flags)
+    
+# 有两种读取方法的原因：
+    cv2.imread()方法 仅支持英文路径
+    (对于路径中包含中文的图片会报错，无法读取)
 
-        filename：读取的图片路径（这个路径需为全英文否则会报错）（使用中文路径读取图片的方法在下面）
-        flags：读取图片的标志，默认为 cv2.IMREAD_COLOR
+    而numpy.fromfile()方法可以读取任意路径的文件为ndarray对象
+    (但是这个对象不符合OpenCv中的图片格式所以需要转换)
 
-    注意事项：
-    返回一个三维数组: (h, w, c)
-    flags(常用的三个)：
-        cv2.IMREAD_COLOR: 默认，读取为彩色图片，输出为三通道数组
-        cv2.IMREAD_GRAYSCALE: 读取为灰度图片，输出为单通道数组
-        cv2.IMREAD_ANYCOLOR: 根据图像自动选择彩色或灰度
+
+# 第一种方法(也是最常用的)：
+    cv2.imread()
+
+        语法格式：
+        cv2.imread(filename, flags)
+
+            filename：读取的图片路径
+            flags：读取图片的标志，默认为 cv2.IMREAD_COLOR
+
+        注意事项：
+        返回一个三维数组: (h, w, c)
+        flags(常用的三个)：
+            cv2.IMREAD_COLOR: 默认，读取为彩色图片，输出为三通道数组
+            cv2.IMREAD_GRAYSCALE: 读取为灰度图片，输出为单通道数组
+            cv2.IMREAD_ANYCOLOR: 根据图像自动选择彩色或灰度
+
+        举例：
+        import cv2
+
+        image = cv2.imread("../images/car3.png")    # 将图片读取为 ndarray对象 
+
+    
+# 第二种方法(稍微麻烦，但适用于任意路径) 
+    numpy.fromfile() + cv2.imdecode()  
+
+        语法格式：
+        image_bytes = numpy.fromfile(path, dtype=np.uint8)
+
+            path：可以传入任意路径
+            dtype：必须指定为 np.uint8，默认为 float
+                     
+        image = cv2.imdecode(image_bytes, flags)
+
+            image_bytes：numpy.fromfile方法的返回值(一维字节流)
+            flags：读取图片的标志，默认为 cv2.IMREAD_COLOR
+
+        注意事项：
+        最终得到的 image 为符合OpenCv图像格式的 ndarray对象
+        numpy.fromfile 方法的返回值是一维的NumPy数组，包含文件的原始二进制字节
+        cv2.imdecode 方法将一维字节流转换为多维图像矩阵
+
+        # 举例：
+        import cv2 
+        import numpy as np  
+
+        image = np.fromfile('images/1.jpg', dtype=np.uint8)
+        image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 """
 
 
