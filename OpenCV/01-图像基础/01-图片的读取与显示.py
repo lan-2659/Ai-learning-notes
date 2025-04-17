@@ -46,7 +46,7 @@
                      
         image = cv2.imdecode(image_bytes, flags)
 
-            image_bytes：numpy.fromfile方法的返回值(一维字节流)
+            image_bytes：numpy.fromfile方法的返回值
             flags：读取图片的标志，默认为 cv2.IMREAD_COLOR
 
         注意事项：
