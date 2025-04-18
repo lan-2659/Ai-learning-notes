@@ -2,16 +2,18 @@
 """
 cv2.circle()方法：
     语法格式：
-    cv2.circle(img, center, radius, color, thickness=None, lineType=None, shift=None)
+    cv2.circle(img, center, radius, color, thickness=-1, lineType=cv2.LINE_8, shift=0)
 
         参数说明：
         img: 输入图像（numpy数组，在该图像上绘制圆）
         center: 圆心坐标，格式为 (x, y)
         radius: 圆的半径（整数）
         color: 圆的颜色，BGR格式（例如 (255,0,0) 表示蓝色）
-        thickness: 线条粗细（默认1）。若为 -1 表示填充圆形
+        thickness: 线条粗细，默认-1，必须传入整数
+            零或正数表示绘制圆形边框的粗细
+            负数表示填充圆形
         lineType: 线条类型（默认cv2.LINE_8）
-        shift: 坐标小数点位数（默认为0，表示整数坐标）
+        shift:  对坐标进行 右移操作（等价于 坐标>>shift，然后用新的坐标进行绘制）
 
     注意事项：
     直接在原图上修改，无返回值

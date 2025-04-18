@@ -52,7 +52,7 @@ cv2.resize()方法：
         cv2.INTER_NEAREST: 最近邻插值（速度快，质量差）  
         cv2.INTER_LINEAR: 双线性插值（默认，平衡速度质量）  
         cv2.INTER_CUBIC: 双三次插值（高质量，速度慢）  
-        cv2.INTER_AREA: 区域重采样（图像缩小时推荐）  
+        cv2.INTER_AREA: 区域插值（图像缩小时推荐）  
     尺寸陷阱：  
         输入dsize顺序是 (宽度, 高度)  
         与numpy数组的shape (高度, 宽度, 通道) 顺序相反  
