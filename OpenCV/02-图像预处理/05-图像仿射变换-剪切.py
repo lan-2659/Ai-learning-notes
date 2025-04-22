@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-image = cv2.imread('../images/fangshe.jpeg')
+image = cv2.imread('./images/renwu01.jpeg')
 #获取图片的像素
 (h,w) = image.shape[:2]
 #定义剪切的的x轴和y轴比例，小于 1的值

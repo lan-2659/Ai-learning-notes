@@ -39,12 +39,6 @@ ret = cap.open(source)  # 切换打开的视频文件或摄像头，返回一个
               int: 摄像头索引（通常为0）  
               str: 视频文件路径（如"video.mp4"）
 
-ret = cap.open(apiPreference, source)              
-            apiPreference: 可选，默认为cv2.CAP_ANY
-              cv2.CAP_ANY: 默认值，自动选择合适的API
-            source:
-
-
 
 三、举例：实时摄像头捕获与视频文件读取  
 
