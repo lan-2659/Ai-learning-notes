@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-image = cv2.imread('../images/fangshe.jpeg')
+image = cv2.imread('./images/ceshi01.jpeg')
 #获取图片的像素
 (h,w) = image.shape[:2]
 #定义缩放的大小，大于1的值就是放大，小于的值就是缩小
