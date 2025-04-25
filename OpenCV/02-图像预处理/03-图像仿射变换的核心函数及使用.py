@@ -1,6 +1,8 @@
 
-# cv2.getRotationMatrix2D()方法  
+# 创建仿射变换矩阵
 """  
+# cv2.getRotationMatrix2D()方法  
+
     语法格式：  
     M = cv2.getRotationMatrix2D(center, angle, scale)  
 
@@ -32,8 +34,10 @@
 """
 
 
-# cv2.warpAffine()方法  
+# 使用仿射变换矩阵
 """  
+# cv2.warpAffine()方法  
+
     语法格式：  
     cv2.warpAffine(src, M, dsize, flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)  
 
