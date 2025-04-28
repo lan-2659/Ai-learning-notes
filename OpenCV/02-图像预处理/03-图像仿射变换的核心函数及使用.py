@@ -7,9 +7,7 @@
     M = cv2.getRotationMatrix2D(center, angle, scale)  
 
         参数说明：  
-        center: 旋转中心坐标（图像坐标系下的坐标点），格式为 (x, y)（整数或浮点数）  
-            图像坐标系原点在左上角，x轴向右，y轴向下  
-            通常设为图像中心：(cols//2, rows//2)，其中cols、rows为图像宽高  
+        center: 旋转中心坐标（图像坐标系下的坐标点），格式为 (x, y)（整数或浮点数）   
         angle: 旋转角度（单位：度/°）  
             正值：逆时针旋转  
             负值：顺时针旋转  
@@ -30,7 +28,22 @@
         - 直接使用该矩阵进行变换时，无需额外构造平移矩阵  
     3. 矩阵数据类型固定为 `np.float32`，可直接传入 `cv2.warpAffine` 使用  
     4. 角度单位为 **度**（°），而非弧度（rad），内部会自动转换（使用 `np.deg2rad(angle)`）  
-    5. 缩放因子 `scale` 可实现旋转时的同步缩放（如 `scale=0.8` 表示旋转同时缩小20%）   
+    5. 缩放因子 `scale` 可实现旋转时的同步缩放（如 `scale=0.8` 表示旋转同时缩小20%）  
+
+
+# 手动创建仿射变换矩阵
+
+    可以手动创建单一用途的仿射变换矩阵，如：  
+        - 缩放变换：M = np.float32([[scale, 0, 0], [0, scale, 0]])  
+        - 旋转变换：M = np.float32([[cos(angle), -sin(angle), 0], [sin(angle), cos(angle), 0]])  
+        - 平移变换：M = np.float32([[1, 0, t_x], [0, 1, t_y]])  
+        - 剪切变换：M = np.float32([[1, sh_x, 0], [sh_y, 1, 0]])
+    
+    复合矩阵须通过单一用途矩阵组合(矩阵相乘，且遵循右乘先发生，左乘后发生)，如：
+        M = 旋转矩阵 · 平移矩阵 · 剪切矩阵
+	    (根据这个矩阵，图像会先剪切，再平移，最后再旋转)
+
+        注意：这里涉及的乘法是线性代数中的矩阵乘法(并非numpy数组的直接相乘)
 """
 
 
@@ -77,10 +90,12 @@
     import cv2  
     import numpy as np  
 
+    # 读取图片
+    img = cv2.imread("images/1.jpg", cv2.IMREAD_COLOR)  
+    rows, cols = img.shape[:2]
+    center = (cols // 2, rows // 2)
+
     # 示例1：图像旋转（绕中心逆时针旋转45°，保持原尺寸）  
-    img = cv2.imread("lena.jpg", cv2.IMREAD_COLOR)  
-    rows, cols = img.shape[:2]  
-    center = (cols // 2, rows // 2)  
     angle = 45  
     scale = 1.0  
     M = cv2.getRotationMatrix2D(center, angle, scale)  # 生成旋转矩阵  
@@ -103,11 +118,12 @@
     sheared_img = cv2.warpAffine(img, M_shear, (cols, rows), borderMode=cv2.BORDER_REPLICATE)  # 复制边缘像素避免黑边  
 
     # 示例5：组合变换（先缩放后旋转，最后平移）  
-    M_scale = np.float32([[0.8, 0, 0], [0, 0.8, 0]])  # 缩放矩阵  
+    M_scale = np.float32([[0.8, 0, 0], [0, 0.8, 0], [0, 0, 1]])  # 缩放矩阵  
     M_rotate = cv2.getRotationMatrix2D(center, 30, 1.0)  # 旋转矩阵  
-    M_translate = np.float32([[1, 0, 50], [0, 1, 50]])  # 平移矩阵  
+    M_rotate = np.vstack([M_rotate, [0, 0, 1]])
+    M_translate = np.float32([[1, 0, 50], [0, 1, 50], [0, 0, 1]])  # 平移矩阵  
     M_combined = M_translate @ M_rotate @ M_scale  # 矩阵相乘顺序：平移×旋转×缩放（从右到左执行）  
-    combined_img = cv2.warpAffine(img, M_combined, (cols + 50, rows + 50), flags=cv2.INTER_LINEAR)  
+    combined_img = cv2.warpAffine(img, M_combined[:2], (cols + 50, rows + 50), flags=cv2.INTER_LINEAR)  
 
     cv2.imshow("WarpAffine Demo", combined_img)  
     cv2.waitKey(0)  
