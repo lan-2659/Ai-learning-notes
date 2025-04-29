@@ -1,6 +1,6 @@
 # ndarray对象的运算
 """
-# 语法格式：
+# 语法格式(基本)：
 ndarray1 + ndarray2
 ndarray1 - ndarray2
 ndarray1 * ndarray2
@@ -15,6 +15,13 @@ ndarray1 | ndarray2
 1、ndarray对象的运算本质是对应位置的元素分别进行运算，将所有运算结果组成一个新数组返回
 2、两个ndarray对象进行运算时，两个数组的形状必须相同，或者其中一个可以广播也行
 3、ndarray对象与某一值进行运算时，其实是将这个单个值运ndarray对象的每一个元素分别进行了运算，将所有运算结果组成一个新数组返回
+4、上述方法可以连用
+
+
+# 特殊运算(矩阵运算):
+ndarray1 @ ndarray2          # 可以连用，将numpy数组当做矩阵，进行线性代数中的矩阵乘法，返回一个新数组
+
+@ 运算符是 Python 3.5 及以上版本引入的用于矩阵乘法的运算符，其功能和 numpy.matmul() 基本一致，是 numpy.matmul() 的语法糖
 """
 
 
