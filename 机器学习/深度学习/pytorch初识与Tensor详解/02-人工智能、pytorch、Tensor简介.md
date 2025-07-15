@@ -36,7 +36,7 @@
 
 
 
-<img src="./media/image-20240521093824060.png" alt="image-20240521093824060" style="zoom:80%;" />
+<img src="../media/image-20240521093824060.png" alt="image-20240521093824060" style="zoom:80%;" />
 
 
 
@@ -44,7 +44,7 @@
 
 ## 4. AI产业大生态
 
-<img src="/media/image-20240521103829626.png" alt="image-20240521103829626" style="zoom:50%;" />
+<img src="../media/image-20240521103829626.png" alt="image-20240521103829626" style="zoom:50%;" />
 
 
 
@@ -52,7 +52,7 @@
 
 PyTorch，简称Torch，主流的经典的深度学习框架，如果你只想掌握一个深度学习框架，那就毫不犹豫的选择他吧！
 
-<img src="media/image-20240819144215574.png" alt="image-20240819144215574" style="zoom:30%;" />
+<img src="../media/image-20240819144215574.png" alt="image-20240819144215574" style="zoom:30%;" />
 
 **翻译：**用Torch进行深度学习。
 

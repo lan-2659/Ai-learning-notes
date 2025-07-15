@@ -1,7 +1,3 @@
----
-typora-copy-images-to: media
----
-
 # pytorch安装
 
 建议（非常强烈的那种）用Anaconda创建一个**新的**虚拟环境，用于运行安装你的PyTorch
@@ -47,15 +43,15 @@ cuDNN是基于CUDA的深度神经网络加速库，提供了针对深度学习�
 
 打开GEFORCE
 
-![1752458588404](media/1752458588404.png)
+![1752458588404](../media/1752458588404.png)
 
 进行驱动更新(驱动版本越高，支持的cuda版本越高)
 
-<img src='media/image-20240823100824049.png'/>
+<img src='../media/image-20240823100824049.png'/>
 
 安装成功：
 
-<img src='media/image-20240823101457834.png'/>
+<img src='../media/image-20240823101457834.png'/>
 
 
 
@@ -63,7 +59,7 @@ cuDNN是基于CUDA的深度神经网络加速库，提供了针对深度学习�
 
 在cmd里面，输入**nvidia-smi**查看GPU驱动程序版本：
 
-<img src='media/1752484970991.png'/>
+<img src='../media/1752484970991.png'/>
 
 ## 3. 开始安装
 
@@ -75,13 +71,13 @@ cuDNN是基于CUDA的深度神经网络加速库，提供了针对深度学习�
 
 进入官网后，选择合适的安装版本
 
-<img src='./media/1752485185157.png'/>
+<img src='../media/1752485185157.png'/>
 
 
 
 (这里选择的是12.4.1版本)
 
-<img src='media/image-20250604103859067.png'/>)
+<img src='../media/image-20250604103859067.png'/>)
 
 点击下载完成
 
@@ -106,7 +102,7 @@ cmd打开命令界面，输入：
 nvcc -V
 ```
 
-<img src='media/1752487722887.png'/>'
+<img src='../media/1752487722887.png'/>'
 
 ### 3.2 安装cuDNN
 
@@ -116,31 +112,31 @@ nvcc -V
 
 进入官网
 
-![1752490168914](media/1752490168914.png)
+![1752490168914](../media/1752490168914.png)
 
 
 
 进入下载文库
 
-![1752490654309](media/1752490654309.png)
+![1752490654309](../media/1752490654309.png)
 
 
 
 这里安装的是8.9.7版本
 
-<img src='media/QQ20250604-141812.png'/>
+<img src='../media/QQ20250604-141812.png'/>
 
 下载好之后，解压：
 
-<img src='media/QQ20250604-142013.png'/>
+<img src='../media/QQ20250604-142013.png'/>
 
 复制这三个文件，替换 cuda 安装文件夹下(默认地址：C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4)的对应三个文件：
 
-<img src='media/QQ20250604-142158.png'/>
+<img src='../media/QQ20250604-142158.png'/>
 
 添加path环境变量：
 
-<img src='media/QQ20250604-142307.png'/>
+<img src='../media/QQ20250604-142307.png'/>
 
 验证安装成功：
 
@@ -148,11 +144,11 @@ nvcc -V
 
 - deviceQuery.exe
 
-  <img src='media/QQ20250604-142454.png'/>
+  <img src='../media/QQ20250604-142454.png'/>
 
 - bandwidthTest.exe
 
-  <img src='media/QQ20250604-142534.png'/>
+  <img src='../media/QQ20250604-142534.png'/>
 
 ### 3.3 安装PyTorch
 
@@ -162,7 +158,7 @@ nvcc -V
 
 文档中的版本号仅供参考，以实际电脑环境为准
 
-<img src="media/QQ20250604-144759.png" style="zoom:100%;" />
+<img src="../media/QQ20250604-144759.png" style="zoom:100%;" />
 
 **离线安装：（以torch-2.3.1+cu121-cp310-cp310-win_amd64.whl这个包为例）**
 
@@ -170,7 +166,7 @@ nvcc -V
 
 找到torch，点击进入下载页面，找到适合自己cuda版本的安装包，下载即可（使用迅雷下载比较快）
 
-<img src="media/QQ20250604-145112.png" alt="QQ20250116-155408.png" style="zoom:50%;" />
+<img src="../media/QQ20250604-145112.png" alt="QQ20250116-155408.png" style="zoom:50%;" />
 
 下载完成后，在Anaconda prompt界面切换到自己的虚拟环境，并将目录切换到torch安装包所在的文件夹，输入命令：
 
@@ -178,7 +174,7 @@ nvcc -V
 pip install torch-2.3.1+cu121-cp310-cp310-win_amd64.whl
 ```
 
-<img src="media/QQ20250116-155943.png" alt="image-20240819151747916" style="zoom:50%;" />
+<img src="../media/QQ20250116-155943.png" alt="image-20240819151747916" style="zoom:50%;" />
 
 测试：
 
@@ -203,7 +199,7 @@ pip install torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.p
 
 在任务管理器中查看GPU是否为NVIDIA ：
 
-<img src='media/QQ20250330-185828.png'/>
+<img src='../media/QQ20250330-185828.png'/>
 
 如果驱动不是NVIDIA ，说明没有CUDA，建议安装CPU版本
 
@@ -211,7 +207,7 @@ pip install torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.p
 
 在cmd里面，输入**nvidia-smi**查看GPU驱动程序版本：
 
-<img src='media/QQ20250330-185414.png'/>
+<img src='../media/QQ20250330-185414.png'/>
 
 如果显示以上信息，说明没有安装NVIDIA 驱动，建议安装CPU版本
 
@@ -219,17 +215,17 @@ pip install torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.p
 
 在官方文档里面找到适合你设备的PyTorch的CPU版本及对应的安装指令执行即可：https://pytorch.org/get-started/previous-versions/，这里的版本**仅供参考**
 
-<img src='media/QQ20250330-190116.png'/>
+<img src='../media/QQ20250330-190116.png'/>
 
 离线安装：
 
 浏览器打开连接：https://download.pytorch.org/whl/cpu/
 
-<img src='media/QQ20250330-191251.png'/>
+<img src='../media/QQ20250330-191251.png'/>
 
 找到torch，点击进入下载页面，找到适合自己cuda版本的安装包，下载即可（使用迅雷下载比较快）
 
-<img src='media/QQ20250330-191022.png'/>
+<img src='../media/QQ20250330-191022.png'/>
 
 
 
