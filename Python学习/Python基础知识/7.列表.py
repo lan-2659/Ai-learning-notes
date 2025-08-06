@@ -90,3 +90,5 @@ list_x.count(3)     # 返回元素3在列表中出现的次数
 
 list_x.reverse()    # 反转列表的排列顺序, 不返回值
 """
+
+print(int(0.5))

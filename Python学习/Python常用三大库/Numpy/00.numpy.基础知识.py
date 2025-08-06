@@ -32,10 +32,10 @@ Python 列表提供了基本的列表操作，如添加、删除、切片、排�
 
 # 安装
 """
-全局安装：
+pip：
     pip install numpy==1.26.0 -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
-conda环境：
+conda：
     conda install numpy=1.26.0 -c https://pypi.mirrors.ustc.edu.cn/simple/
 """
 
